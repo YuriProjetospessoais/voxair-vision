@@ -1,0 +1,75 @@
+import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { Reveal } from "./Reveal";
+
+export function Container({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={cn("mx-auto w-full max-w-6xl px-5 sm:px-8", className)}>{children}</div>;
+}
+
+export function Section({
+  id,
+  children,
+  className,
+  tone = "default",
+}: {
+  id?: string;
+  children: ReactNode;
+  className?: string;
+  tone?: "default" | "surface" | "deep";
+}) {
+  return (
+    <section
+      id={id}
+      className={cn(
+        "scroll-mt-20 border-t border-border py-20 sm:py-28",
+        tone === "surface" && "bg-surface",
+        tone === "deep" && "bg-deep text-deep-foreground border-transparent",
+        className,
+      )}
+    >
+      <Container>{children}</Container>
+    </section>
+  );
+}
+
+export function SectionHeader({
+  index,
+  eyebrow,
+  title,
+  description,
+  invert = false,
+}: {
+  index?: string;
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  invert?: boolean;
+}) {
+  return (
+    <Reveal className="max-w-3xl">
+      {(index || eyebrow) && (
+        <p className={cn("eyebrow flex items-center gap-3", invert && "text-deep-foreground/60")}>
+          {index && <span className="text-accent">{index}</span>}
+          {eyebrow}
+        </p>
+      )}
+      <h2 className="mt-4 text-3xl leading-tight font-semibold sm:text-4xl">{title}</h2>
+      {description && (
+        <p
+          className={cn(
+            "mt-4 text-base leading-relaxed sm:text-lg",
+            invert ? "text-deep-foreground/70" : "text-muted-foreground",
+          )}
+        >
+          {description}
+        </p>
+      )}
+    </Reveal>
+  );
+}
