@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContatoRouteImport } from './routes/contato'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as InvestidoresRouteImport } from './routes/investidores'
 import { Route as MercadoRouteImport } from './routes/mercado'
+import { Route as PrivacidadeRouteImport } from './routes/privacidade'
 import { Route as SobreRouteImport } from './routes/sobre'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as TecnologiaRouteImport } from './routes/tecnologia'
@@ -26,9 +29,24 @@ const ContatoRoute = ContatoRouteImport.update({
   path: '/contato',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InvestidoresRoute = InvestidoresRouteImport.update({
+  id: '/investidores',
+  path: '/investidores',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MercadoRoute = MercadoRouteImport.update({
   id: '/mercado',
   path: '/mercado',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacidadeRoute = PrivacidadeRouteImport.update({
+  id: '/privacidade',
+  path: '/privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -50,7 +68,10 @@ const TecnologiaRoute = TecnologiaRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/faq': typeof FaqRoute
+  '/investidores': typeof InvestidoresRoute
   '/mercado': typeof MercadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
   '/tecnologia': typeof TecnologiaRoute
@@ -58,7 +79,10 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/faq': typeof FaqRoute
+  '/investidores': typeof InvestidoresRoute
   '/mercado': typeof MercadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
   '/tecnologia': typeof TecnologiaRoute
@@ -67,7 +91,10 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/contato': typeof ContatoRoute
+  '/faq': typeof FaqRoute
+  '/investidores': typeof InvestidoresRoute
   '/mercado': typeof MercadoRoute
+  '/privacidade': typeof PrivacidadeRoute
   '/sobre': typeof SobreRoute
   '/solucoes': typeof SolucoesRoute
   '/tecnologia': typeof TecnologiaRoute
@@ -75,14 +102,34 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/contato' | '/mercado' | '/sobre' | '/solucoes' | '/tecnologia'
+    | '/'
+    | '/contato'
+    | '/faq'
+    | '/investidores'
+    | '/mercado'
+    | '/privacidade'
+    | '/sobre'
+    | '/solucoes'
+    | '/tecnologia'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contato' | '/mercado' | '/sobre' | '/solucoes' | '/tecnologia'
+  to:
+    | '/'
+    | '/contato'
+    | '/faq'
+    | '/investidores'
+    | '/mercado'
+    | '/privacidade'
+    | '/sobre'
+    | '/solucoes'
+    | '/tecnologia'
   id:
     | '__root__'
     | '/'
     | '/contato'
+    | '/faq'
+    | '/investidores'
     | '/mercado'
+    | '/privacidade'
     | '/sobre'
     | '/solucoes'
     | '/tecnologia'
@@ -91,7 +138,10 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContatoRoute: typeof ContatoRoute
+  FaqRoute: typeof FaqRoute
+  InvestidoresRoute: typeof InvestidoresRoute
   MercadoRoute: typeof MercadoRoute
+  PrivacidadeRoute: typeof PrivacidadeRoute
   SobreRoute: typeof SobreRoute
   SolucoesRoute: typeof SolucoesRoute
   TecnologiaRoute: typeof TecnologiaRoute
@@ -113,11 +163,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContatoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/investidores': {
+      id: '/investidores'
+      path: '/investidores'
+      fullPath: '/investidores'
+      preLoaderRoute: typeof InvestidoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mercado': {
       id: '/mercado'
       path: '/mercado'
       fullPath: '/mercado'
       preLoaderRoute: typeof MercadoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacidade': {
+      id: '/privacidade'
+      path: '/privacidade'
+      fullPath: '/privacidade'
+      preLoaderRoute: typeof PrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -147,7 +218,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContatoRoute: ContatoRoute,
+  FaqRoute: FaqRoute,
+  InvestidoresRoute: InvestidoresRoute,
   MercadoRoute: MercadoRoute,
+  PrivacidadeRoute: PrivacidadeRoute,
   SobreRoute: SobreRoute,
   SolucoesRoute: SolucoesRoute,
   TecnologiaRoute: TecnologiaRoute,
