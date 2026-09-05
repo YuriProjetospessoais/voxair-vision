@@ -63,14 +63,14 @@ function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border tech-grid">
-      <Container className="grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr]">
+      <Container className="grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-24">
         <div>
           <Reveal>
             <p className="eyebrow">Autonomous Systems · Robotics · AgTech</p>
             <h1 className="mt-5 text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-[3.4rem]">
               Sistemas autônomos para uma nova geração da agricultura.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
               A VoxAir Systems desenvolve uma plataforma integrada de hardware, software e dados
               para pulverização agrícola de precisão — frotas de drones coordenadas por software,
               apoiadas por um Dock e por um registro completo de cada aplicação.
@@ -234,7 +234,7 @@ function PorQue() {
         title="Onde estamos construindo nossa vantagem competitiva"
         description="Distinguimos o que já é capacidade técnica do que ainda é vantagem competitiva potencial. Não chamamos nada de barreira de entrada sem que exista justificativa validada."
       />
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {items.map((it, i) => (
           <Reveal key={it.title} delay={i * 60} className="rounded-lg border border-border bg-card p-7">
             <p className="eyebrow">{it.tipo}</p>
