@@ -63,7 +63,7 @@ function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-border tech-grid">
-      <Container className="grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[1.05fr_0.95fr]">
+      <Container className="grid items-center gap-12 py-20 sm:py-28 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-16 xl:gap-24">
         <div>
           <Reveal>
             <p className="eyebrow">Autonomous Systems · Robotics · AgTech</p>
