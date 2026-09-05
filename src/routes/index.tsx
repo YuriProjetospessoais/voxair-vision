@@ -70,7 +70,7 @@ function Hero() {
             <h1 className="mt-5 text-4xl leading-[1.08] font-semibold sm:text-5xl lg:text-[3.4rem]">
               Sistemas autônomos para uma nova geração da agricultura.
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
+            <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
               A VoxAir Systems desenvolve uma plataforma integrada de hardware, software e dados
               para pulverização agrícola de precisão — frotas de drones coordenadas por software,
               apoiadas por um Dock e por um registro completo de cada aplicação.
