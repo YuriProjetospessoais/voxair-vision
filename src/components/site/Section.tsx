@@ -2,19 +2,44 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Reveal } from "./Reveal";
 
+/**
+ * Container de conteúdo.
+ * - "wide" (padrão): grids, cards, diagramas, hero — ocupa ~90–94% da viewport.
+ * - "reading": blocos de texto — largura limitada para legibilidade.
+ */
 export function Container({
+  children,
+  className,
+  width = "wide",
+}: {
+  children: ReactNode;
+  className?: string;
+  width?: "wide" | "reading";
+}) {
+  return (
+    <div
+      className={cn(
+        "mx-auto w-full px-5 sm:px-8 lg:px-10 xl:px-[3vw]",
+        width === "wide" ? "max-w-[1920px]" : "max-w-[80ch]",
+        className,
+      )}
+    >
+      {children}
+    </div>
+  );
+}
+
+/** Bloco de leitura: títulos e parágrafos com largura controlada. */
+export function Prose({
   children,
   className,
 }: {
   children: ReactNode;
   className?: string;
 }) {
-  return (
-    <div className={cn("mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12", className)}>
-      {children}
-    </div>
-  );
+  return <div className={cn("max-w-[68ch]", className)}>{children}</div>;
 }
+
 
 export function Section({
   id,
