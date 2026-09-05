@@ -234,7 +234,7 @@ function PorQue() {
         title="Onde estamos construindo nossa vantagem competitiva"
         description="Distinguimos o que já é capacidade técnica do que ainda é vantagem competitiva potencial. Não chamamos nada de barreira de entrada sem que exista justificativa validada."
       />
-      <div className="mt-10 grid gap-6 md:grid-cols-2">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {items.map((it, i) => (
           <Reveal key={it.title} delay={i * 60} className="rounded-lg border border-border bg-card p-7">
             <p className="eyebrow">{it.tipo}</p>
