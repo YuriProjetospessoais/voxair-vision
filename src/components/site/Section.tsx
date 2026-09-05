@@ -81,7 +81,7 @@ export function SectionHeader({
   invert?: boolean;
 }) {
   return (
-    <Reveal className="max-w-3xl">
+    <Reveal className="max-w-[72ch]">
       {(index || eyebrow) && (
         <p className={cn("eyebrow flex items-center gap-3", invert && "text-deep-foreground/60")}>
           {index && <span className="text-accent">{index}</span>}
