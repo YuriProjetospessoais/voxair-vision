@@ -261,7 +261,12 @@ function InvestidoresPage() {
               </div>
             </Reveal>
             <Reveal delay={120}>
-              <SystemDiagram className="w-full text-deep-foreground/80" />
+              <div className="rounded-xl border border-deep-foreground/15 bg-card p-5 text-card-foreground sm:p-7">
+                <SystemDiagram className="w-full" />
+                <p className="mt-3 text-center text-xs text-muted-foreground">
+                  Arquitetura do sistema: software de missão, frota, Dock e dados.
+                </p>
+              </div>
             </Reveal>
           </div>
         </Container>
