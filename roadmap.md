@@ -15,7 +15,7 @@
 - [ ] P7 Página Tecnologia com tabs + Tech Stack Explorer
 - [ ] P8 Roadmap interativo
 - [ ] P9 Mission Control (conceitual) + comparação arquitetural
-- [ ] P10 /investidores
+- [x] P10 /investidores (tese, why now, landscape, modelo, estágio, roadmap capital, riscos, use of funds, team, CTA)
 - [ ] P11 /faq
 - [ ] P12 /privacidade
 - [ ] P13 Contato inteligente (perfil, validação, ?assunto=)
