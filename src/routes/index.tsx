@@ -440,6 +440,7 @@ function Equipe() {
         </p>
         <Link
           to="/contato"
+          search={{ assunto: "Investimento" }}
           className="mt-5 inline-flex rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
         >
           Solicitar informações da equipe
@@ -463,6 +464,7 @@ function CTA() {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             to="/contato"
+            search={{ assunto: "Investimento" }}
             className="rounded-md bg-accent px-5 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
           >
             Fale com a VoxAir
