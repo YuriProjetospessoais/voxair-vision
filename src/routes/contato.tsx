@@ -26,11 +26,11 @@ function perfilFromAssunto(assunto?: string): Perfil {
   return "Outro";
 }
 
-type ContatoSearch = { assunto?: string };
+type ContatoSearch = { assunto?: string | undefined };
 
 export const Route = createFileRoute("/contato")({
   validateSearch: (search: Record<string, unknown>): ContatoSearch => ({
-    assunto: typeof search.assunto === "string" ? search.assunto : undefined,
+    assunto: typeof search["assunto"] === "string" ? (search["assunto"] as string) : undefined,
   }),
   head: () => ({
     meta: [
