@@ -8,7 +8,7 @@ import { Reveal } from "./Reveal";
  * A variante `invert` adapta o card a seções de fundo escuro (tone="deep").
  */
 
-type Tone = { invert?: boolean };
+type Tone = { invert?: boolean | undefined };
 
 const base = "rounded-lg border p-6 sm:p-7";
 const toneCls = (invert?: boolean) =>
