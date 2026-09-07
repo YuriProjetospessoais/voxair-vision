@@ -3,6 +3,7 @@ import { Container, Section, SectionHeader } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { SystemDiagram } from "@/components/site/SystemDiagram";
 import { MissionFlow } from "@/components/site/MissionFlow";
+import { StatCard, ComparisonCard, TechnicalCard, StatusTag } from "@/components/site/Cards";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,13 +49,15 @@ function Home() {
       <Hero />
       <Problema />
       <Solucao />
-      <ComoFunciona />
-      <PorQue />
       <Mercado />
-      <Modelo />
-      <OndeEstamos />
+      <Competitividade />
+      <Tecnologia />
       <Roadmap />
+      <Modelo />
+      <UsoDeCapital />
+      <Riscos />
       <Equipe />
+      <Validacao />
       <CTA />
     </main>
   );
@@ -117,7 +120,8 @@ function Problema() {
         title="A pulverização convencional é cara, imprecisa e dependente de janelas curtas"
         description="Aplicar insumos no momento certo, na dose certa e no lugar certo continua sendo um dos maiores gargalos operacionais do campo."
       />
-      <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {[
           [
             "Janela operacional curta",
@@ -142,6 +146,44 @@ function Problema() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal className="mt-14">
+        <h3 className="text-xl font-semibold">Dimensionamento do problema</h3>
+        <p className="mt-3 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
+          Ainda não publicamos números de mercado ou de operação porque não temos, neste momento,
+          medição própria nem fonte verificada para citar. Os indicadores abaixo estão estruturados
+          e serão preenchidos conforme a validação avançar.
+        </p>
+      </Reveal>
+      <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <StatCard
+          status="A validar"
+          label="Custo por hectare"
+          value="—"
+          description="Custo da aplicação convencional comparado à operação com frota coordenada. Será medido em testes próprios."
+        />
+        <StatCard
+          delay={60}
+          status="A validar"
+          label="Área tratada por dia"
+          value="—"
+          description="Capacidade operacional por ciclo de missão com apoio do Dock. Depende da demonstração integrada."
+        />
+        <StatCard
+          delay={120}
+          status="A validar"
+          label="Redução de insumo"
+          value="—"
+          description="Ganho potencial de aplicação dirigida por missão frente à aplicação uniforme."
+        />
+        <StatCard
+          delay={180}
+          status="A validar"
+          label="Rastreabilidade da aplicação"
+          value="—"
+          description="Percentual de operações com registro estruturado por talhão e por missão."
+        />
+      </div>
     </Section>
   );
 }
@@ -153,96 +195,56 @@ function Solucao() {
         index="02"
         eyebrow="A solução"
         title="Um sistema integrado — não apenas um drone"
-        description="A VoxAir combina quatro componentes que só entregam valor quando funcionam juntos."
-      />
-      <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_1fr] lg:items-center">
-        <div className="grid gap-4 sm:grid-cols-2">
-          {[
-            ["Drones", "Aeronaves de aplicação projetadas para operar como frota, dirigidas por missão."],
-            ["Dock", "Infraestrutura de solo para recarga e preparação entre missões."],
-            ["Software", "Planejamento, divisão e coordenação sincronizada das missões."],
-            ["Dados", "Registro operacional de cada aplicação, por talhão e por missão."],
-          ].map(([t, d], i) => (
-            <Reveal key={t} delay={i * 60} className="rounded-lg border border-border bg-card p-6">
-              <p className="eyebrow text-accent">0{i + 1}</p>
-              <h3 className="mt-2 text-lg font-semibold">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d}</p>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={120} className="rounded-lg border border-border bg-surface p-7">
-          <h3 className="text-lg font-semibold">O valor está na integração</h3>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Drones existem no mercado. O que a VoxAir constrói é o sistema que faz uma frota operar
-            de forma coordenada, se manter em ciclo com o Dock e transformar cada aplicação em dado
-            utilizável. Essa engenharia de integração é o produto.
-          </p>
-          <Link
-            to="/solucoes"
-            className="mt-6 inline-flex text-sm font-medium underline-offset-4 hover:underline"
-          >
-            Ver soluções em detalhe →
-          </Link>
-        </Reveal>
-      </div>
-    </Section>
-  );
-}
-
-function ComoFunciona() {
-  return (
-    <Section id="como-funciona" tone="surface">
-      <SectionHeader
-        index="03"
-        eyebrow="Como funciona"
-        title="Do plano de missão ao dado de aplicação"
-        description="A operação é executada por uma frota coordenada por software — capaz de dividir e executar missões de forma sincronizada — com operador e monitoramento humano, conforme o ambiente operacional e regulatório aplicável."
-      />
-      <MissionFlow />
-    </Section>
-  );
-}
-
-function PorQue() {
-  const items = [
-    {
-      tipo: "Capacidade técnica",
-      title: "Coordenação de múltiplos drones",
-      body: "Dividir e executar uma missão entre várias aeronaves de forma sincronizada é um problema de software e engenharia de sistemas, não de hardware isolado.",
-    },
-    {
-      tipo: "Capacidade técnica",
-      title: "Integração hardware/software",
-      body: "Aeronave, Dock e software desenvolvidos como um sistema único, e não como peças integradas depois.",
-    },
-    {
-      tipo: "Vantagem competitiva potencial",
-      title: "Ciclo operacional com Dock",
-      body: "A infraestrutura de solo é o que permite operações mais longas e menos manuais. Se validada em campo, tende a ser difícil de replicar rapidamente.",
-    },
-    {
-      tipo: "Vantagem competitiva potencial",
-      title: "Dados operacionais acumulados",
-      body: "Cada missão executada gera histórico. Com volume, esse acervo pode sustentar inteligência operacional própria — potencial ainda a ser construído.",
-    },
-  ];
-  return (
-    <Section id="diferenciais">
-      <SectionHeader
-        index="04"
-        eyebrow="Por que VoxAir"
-        title="Onde estamos construindo nossa vantagem competitiva"
-        description="Distinguimos o que já é capacidade técnica do que ainda é vantagem competitiva potencial. Não chamamos nada de barreira de entrada sem que exista justificativa validada."
+        description="A VoxAir combina quatro componentes que só entregam valor quando funcionam juntos: drone, Dock, software e dados."
       />
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {items.map((it, i) => (
-          <Reveal key={it.title} delay={i * 60} className="rounded-lg border border-border bg-card p-7">
-            <p className="eyebrow">{it.tipo}</p>
-            <h3 className="mt-3 text-lg font-semibold">{it.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{it.body}</p>
-          </Reveal>
-        ))}
+        <TechnicalCard
+          index="01"
+          tag="Hardware aéreo"
+          title="Drone"
+          body="Aeronave de aplicação projetada para operar como parte de uma frota, dirigida por missão definida em software."
+          items={["Aplicação dirigida por missão", "Telemetria de cada voo"]}
+        />
+        <TechnicalCard
+          delay={60}
+          index="02"
+          tag="Infraestrutura de solo"
+          title="Dock"
+          body="Ponto de apoio que concentra recarga e preparação entre missões, reduzindo o trabalho manual repetitivo."
+          items={["Ciclo contínuo entre voos", "Menos intervenção manual"]}
+        />
+        <TechnicalCard
+          delay={120}
+          index="03"
+          tag="Software"
+          title="Coordenação de frota"
+          body="Camada que transforma uma área em missões executáveis e as distribui entre múltiplas aeronaves de forma sincronizada."
+          items={["Divisão automática da missão", "Supervisão humana da operação"]}
+        />
+        <TechnicalCard
+          delay={180}
+          index="04"
+          tag="Dados"
+          title="Registro operacional"
+          body="Cada missão gera histórico do que foi aplicado, onde e quando — base para gestão agronômica e rastreabilidade."
+          items={["Histórico por talhão", "Base para inteligência futura"]}
+        />
       </div>
+
+      <Reveal delay={120} className="mt-8 rounded-lg border border-border bg-surface p-7">
+        <h3 className="text-lg font-semibold">O valor está na integração</h3>
+        <p className="mt-3 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
+          Drones existem no mercado. O que a VoxAir constrói é o sistema que faz uma frota operar de
+          forma coordenada, se manter em ciclo com o Dock e transformar cada aplicação em dado
+          utilizável. Essa engenharia de integração é o produto.
+        </p>
+        <Link
+          to="/solucoes"
+          className="mt-6 inline-flex text-sm font-medium underline-offset-4 hover:underline"
+        >
+          Ver soluções em detalhe →
+        </Link>
+      </Reveal>
     </Section>
   );
 }
@@ -251,7 +253,7 @@ function Mercado() {
   return (
     <Section id="mercado" tone="deep">
       <SectionHeader
-        index="05"
+        index="03"
         invert
         eyebrow="Mercado"
         title="Um dos maiores mercados agrícolas do mundo, num segmento ainda em formação"
@@ -278,6 +280,13 @@ function Mercado() {
           </Reveal>
         ))}
       </div>
+
+      <div className="mt-8 grid gap-6 md:grid-cols-3">
+        <StatCard invert status="A validar" label="TAM" value="—" description="Mercado total endereçável. Será publicado apenas com fonte e metodologia declaradas." />
+        <StatCard invert delay={70} status="A validar" label="SAM" value="—" description="Parcela endereçável pela operação com frota coordenada no recorte geográfico inicial." />
+        <StatCard invert delay={140} status="A validar" label="SOM" value="—" description="Parcela alcançável no horizonte de operação própria, dependente da capacidade instalada." />
+      </div>
+
       <Reveal className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="max-w-xl text-sm text-deep-foreground/60">
           Estimativas de TAM, SAM e SOM e projeções financeiras são compartilhadas com fonte e
@@ -294,6 +303,143 @@ function Mercado() {
   );
 }
 
+function Competitividade() {
+  return (
+    <Section id="competitividade">
+      <SectionHeader
+        index="04"
+        eyebrow="Competitividade"
+        title="Onde estamos construindo nossa vantagem competitiva"
+        description="Distinguimos o que já é capacidade técnica do que ainda é vantagem competitiva potencial. Não chamamos nada de barreira de entrada sem justificativa validada."
+      />
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <ComparisonCard
+          title="Máquinas terrestres"
+          subtitle="Pulverizadores autopropelidos"
+          strengths={["Alta capacidade por operação", "Infraestrutura e assistência consolidadas"]}
+          limits={["Compactação de solo", "Restrição em terreno e cultura desenvolvida", "Custo de capital elevado"]}
+        />
+        <ComparisonCard
+          delay={60}
+          title="Aviação agrícola"
+          subtitle="Aeronaves tripuladas"
+          strengths={["Cobertura rápida de grandes áreas", "Operação madura e regulada"]}
+          limits={["Custo por operação e logística de pista", "Menor granularidade de aplicação", "Dependência de piloto especializado"]}
+        />
+        <ComparisonCard
+          delay={120}
+          title="Drone pilotado manualmente"
+          subtitle="Equipamento avulso"
+          strengths={["Baixo custo de entrada", "Flexibilidade em áreas pequenas"]}
+          limits={["Um operador por aeronave", "Ciclo interrompido por recarga e abastecimento", "Pouco registro estruturado"]}
+        />
+        <ComparisonCard
+          delay={180}
+          highlight
+          title="Sistema integrado VoxAir"
+          subtitle="Drone + Dock + software + dados"
+          strengths={["Frota coordenada por software com supervisão humana", "Ciclo operacional apoiado pelo Dock", "Registro estruturado de cada aplicação"]}
+          limits={["Em desenvolvimento (TRL 3–4)", "Sem operação comercial validada até o momento"]}
+        />
+      </div>
+
+      <Reveal className="mt-8 rounded-lg border border-border bg-surface p-6">
+        <p className="max-w-[80ch] text-sm leading-relaxed text-muted-foreground">
+          A comparação acima é qualitativa e descreve abordagens de aplicação, não empresas
+          específicas. Não fazemos alegação de liderança nem de superioridade medida — a
+          comprovação depende de testes em campo ainda a serem executados.
+        </p>
+      </Reveal>
+    </Section>
+  );
+}
+
+function Tecnologia() {
+  return (
+    <Section id="tecnologia" tone="surface">
+      <SectionHeader
+        index="05"
+        eyebrow="Tecnologia"
+        title="Do plano de missão ao dado de aplicação"
+        description="A operação é executada por uma frota coordenada por software — capaz de dividir e executar missões de forma sincronizada — com operador e monitoramento humano, conforme o ambiente operacional e regulatório aplicável."
+      />
+      <MissionFlow />
+
+      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <TechnicalCard
+          tag="Arquitetura"
+          title="Engenharia de sistemas"
+          status="Em desenvolvimento"
+          body="Aeronave, Dock e software desenvolvidos como um sistema único, e não como peças integradas depois."
+        />
+        <TechnicalCard
+          delay={60}
+          tag="Autonomia"
+          title="Coordenação com supervisão"
+          status="Em desenvolvimento"
+          body="A operação prevista hoje é assistida, com operador humano monitorando. Autonomia progressiva é visão de futuro, não capacidade comercial validada."
+        />
+        <TechnicalCard
+          delay={120}
+          tag="Comunicação"
+          title="Telemetria e controle de frota"
+          status="Em desenvolvimento"
+          body="Camada responsável por manter estado, comandos e telemetria sincronizados entre as aeronaves e o centro de operação."
+        />
+        <TechnicalCard
+          delay={180}
+          tag="Stack"
+          title="Base aberta, camada própria"
+          status="Definido"
+          body="Tecnologias abertas e validadas pela indústria formam a base; a integração, a automação e o modelo de dados são desenvolvidos pela VoxAir."
+        />
+      </div>
+
+      <Reveal className="mt-8 flex flex-wrap items-center gap-3">
+        <Link
+          to="/tecnologia"
+          className="inline-flex rounded-md border border-border bg-background px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+        >
+          Ver arquitetura completa
+        </Link>
+        <StatusTag>Estratégia regulatória antecipada, sem parceria com órgãos reguladores</StatusTag>
+      </Reveal>
+    </Section>
+  );
+}
+
+function Roadmap() {
+  const marcos = [
+    ["Hoje", "Desenvolvimento tecnológico", "Arquitetura definida e componentes em desenvolvimento e integração (TRL 3–4)."],
+    ["Próximo marco", "Demonstração integrada", "Validar o ciclo completo do sistema em ambiente representativo, com supervisão humana."],
+    ["Escala", "Operação e plataforma", "Operar como serviço, ampliar a frota e evoluir para fornecimento de hardware + software."],
+  ];
+  return (
+    <Section id="roadmap">
+      <SectionHeader
+        index="06"
+        eyebrow="Roadmap"
+        title="Hoje → próximo marco → escala"
+        description="Sem datas especulativas: publicamos apenas a sequência de marcos que orienta o desenvolvimento."
+      />
+      <ol className="mt-10 space-y-4">
+        {marcos.map(([fase, title, body], i) => (
+          <Reveal as="li" key={fase} delay={i * 70}>
+            <div className="grid gap-3 rounded-lg border border-border bg-card p-6 sm:grid-cols-[160px_1fr] sm:items-start">
+              <p className="eyebrow text-accent">{fase}</p>
+              <div>
+                <h3 className="text-lg font-semibold">{title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </ol>
+    </Section>
+  );
+}
+
 function Modelo() {
   const fases = [
     ["Fase 1", "Serviço B2B", "Pulverização como serviço, operada pela própria VoxAir.", "Estratégia de entrada"],
@@ -301,9 +447,9 @@ function Modelo() {
     ["Fase 3", "Ecossistema", "Dados, insumos e serviços complementares.", "Visão de longo prazo"],
   ];
   return (
-    <Section id="modelo">
+    <Section id="modelo" tone="surface">
       <SectionHeader
-        index="06"
+        index="07"
         eyebrow="Modelo de negócio"
         title="Entrar operando, escalar como plataforma"
         description="Primeiro validamos a tecnologia operando nós mesmos. Depois, fornecemos o sistema. As fases seguintes são visão estratégica, não operação existente."
@@ -324,7 +470,123 @@ function Modelo() {
   );
 }
 
-function OndeEstamos() {
+function UsoDeCapital() {
+  return (
+    <Section id="uso-de-capital">
+      <SectionHeader
+        index="08"
+        eyebrow="Uso de capital"
+        title="Para onde o capital é direcionado"
+        description="Publicamos apenas as direções de alocação. Valores, percentuais e cronograma são discutidos diretamente com investidores, conforme a estruturação da rodada."
+      />
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <TechnicalCard
+          tag="Prioridade"
+          title="Engenharia e desenvolvimento"
+          body="Time técnico, integração hardware/software e evolução da camada de coordenação de frota."
+        />
+        <TechnicalCard
+          delay={60}
+          tag="Prioridade"
+          title="Protótipos e Dock"
+          body="Construção e iteração dos protótipos de aeronave e da infraestrutura de solo que sustenta o ciclo operacional."
+        />
+        <TechnicalCard
+          delay={120}
+          tag="Prioridade"
+          title="Testes e validação em campo"
+          body="Execução da demonstração integrada em ambiente representativo e medição dos indicadores hoje marcados como a validar."
+        />
+        <TechnicalCard
+          delay={180}
+          tag="Prioridade"
+          title="Preparação regulatória e operação"
+          body="Acompanhamento regulatório antecipado e estruturação da operação inicial como serviço."
+        />
+      </div>
+      <Reveal className="mt-8">
+        <StatusTag>Alocação detalhada: informação disponível sob demanda</StatusTag>
+      </Reveal>
+    </Section>
+  );
+}
+
+function Riscos() {
+  const riscos = [
+    [
+      "Risco técnico",
+      "Integrar aeronave, Dock e software em um ciclo operacional confiável é um problema de engenharia de sistemas ainda em desenvolvimento.",
+      "Desenvolvimento incremental, uso de componentes maduros na base e validação por etapas antes da operação em campo.",
+    ],
+    [
+      "Risco regulatório",
+      "A operação de aeronaves não tripuladas e a aplicação de insumos seguem regras em evolução.",
+      "Acompanhamento regulatório contínuo e arquitetura desenhada para operação com supervisão humana desde o início.",
+    ],
+    [
+      "Risco de mercado",
+      "A adoção depende de demonstrar ganho operacional real ao produtor, e não apenas capacidade tecnológica.",
+      "Entrada pela operação como serviço, o que encurta o ciclo de prova antes da venda de hardware e software.",
+    ],
+    [
+      "Risco de execução",
+      "Empresa em estágio inicial, com time enxuto e recursos limitados.",
+      "Escopo focado no ciclo integrado mínimo, marcos claros e priorização do que precisa ser validado primeiro.",
+    ],
+  ];
+  return (
+    <Section id="riscos" tone="deep">
+      <SectionHeader
+        index="09"
+        invert
+        eyebrow="Riscos"
+        title="O que pode dar errado — e como tratamos"
+        description="Apresentar riscos de forma explícita faz parte de uma leitura honesta do estágio da empresa."
+      />
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {riscos.map(([t, r, m], i) => (
+          <Reveal key={t} delay={i * 60} className="rounded-lg border border-deep-foreground/15 p-7">
+            <p className="eyebrow text-accent">{t}</p>
+            <p className="mt-3 text-sm leading-relaxed text-deep-foreground/80">{r}</p>
+            <p className="mt-4 border-t border-deep-foreground/15 pt-4 text-sm leading-relaxed text-deep-foreground/60">
+              <span className="font-medium text-deep-foreground/85">Mitigação: </span>
+              {m}
+            </p>
+          </Reveal>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+function Equipe() {
+  return (
+    <Section id="equipe">
+      <SectionHeader
+        index="10"
+        eyebrow="Equipe"
+        title="Quem está construindo a VoxAir"
+        description="Um núcleo técnico enxuto, dedicado a engenharia de sistemas, integração hardware/software e operação."
+      />
+      <Reveal className="mt-8 rounded-lg border border-dashed border-border bg-card p-8">
+        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Os perfis públicos da equipe ainda não foram divulgados neste site. Preferimos não
+          publicar informações incompletas — investidores e parceiros podem solicitar o
+          detalhamento do time diretamente.
+        </p>
+        <Link
+          to="/contato"
+          search={{ assunto: "Investimento" }}
+          className="mt-5 inline-flex rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
+        >
+          Solicitar informações da equipe
+        </Link>
+      </Reveal>
+    </Section>
+  );
+}
+
+function Validacao() {
   const cols = [
     {
       t: "Validado / desenvolvido",
@@ -355,10 +617,10 @@ function OndeEstamos() {
     },
   ];
   return (
-    <Section id="onde-estamos" tone="surface">
+    <Section id="validacao" tone="surface">
       <SectionHeader
-        index="07"
-        eyebrow="Estágio atual"
+        index="11"
+        eyebrow="Validação"
         title="Onde estamos"
         description="A VoxAir está em estágio inicial de desenvolvimento tecnológico (TRL 3–4). Não há, até o momento, operação comercial, receita ou clientes pagantes — e não apresentamos nada disso como se houvesse."
       />
@@ -388,64 +650,6 @@ function OndeEstamos() {
           </Reveal>
         ))}
       </div>
-    </Section>
-  );
-}
-
-function Roadmap() {
-  const marcos = [
-    ["Hoje", "Desenvolvimento tecnológico", "Arquitetura definida e componentes em desenvolvimento e integração (TRL 3–4)."],
-    ["Próximo marco", "Demonstração integrada", "Validar o ciclo completo do sistema em ambiente representativo, com supervisão humana."],
-    ["Escala", "Operação e plataforma", "Operar como serviço, ampliar a frota e evoluir para fornecimento de hardware + software."],
-  ];
-  return (
-    <Section id="roadmap">
-      <SectionHeader
-        index="08"
-        eyebrow="Roadmap"
-        title="Hoje → próximo marco → escala"
-        description="Sem datas especulativas: publicamos apenas a sequência de marcos que orienta o desenvolvimento."
-      />
-      <ol className="mt-10 space-y-4">
-        {marcos.map(([fase, title, body], i) => (
-          <Reveal as="li" key={fase} delay={i * 70}>
-            <div className="grid gap-3 rounded-lg border border-border bg-card p-6 sm:grid-cols-[160px_1fr] sm:items-start">
-              <p className="eyebrow text-accent">{fase}</p>
-              <div>
-                <h3 className="text-lg font-semibold">{title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
-              </div>
-            </div>
-          </Reveal>
-        ))}
-      </ol>
-    </Section>
-  );
-}
-
-function Equipe() {
-  return (
-    <Section id="equipe" tone="surface">
-      <SectionHeader
-        index="09"
-        eyebrow="Equipe"
-        title="Quem está construindo a VoxAir"
-        description="Um núcleo técnico enxuto, dedicado a engenharia de sistemas, integração hardware/software e operação."
-      />
-      <Reveal className="mt-8 rounded-lg border border-dashed border-border bg-card p-8">
-        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
-          Os perfis públicos da equipe ainda não foram divulgados neste site. Preferimos não
-          publicar informações incompletas — investidores e parceiros podem solicitar o
-          detalhamento do time diretamente.
-        </p>
-        <Link
-          to="/contato"
-          search={{ assunto: "Investimento" }}
-          className="mt-5 inline-flex rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:bg-secondary"
-        >
-          Solicitar informações da equipe
-        </Link>
-      </Reveal>
     </Section>
   );
 }
