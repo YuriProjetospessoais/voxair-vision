@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Section, SectionHeader } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { SystemDiagram } from "@/components/site/SystemDiagram";
@@ -135,6 +135,30 @@ function TecnologiaPage() {
             </p>
           </Reveal>
         </div>
+      </Section>
+
+      <Section>
+        <SectionHeader
+          eyebrow="Contato técnico"
+          title="Quer discutir a arquitetura em detalhe?"
+          description="Perfis de engenharia e tecnologia podem solicitar uma conversa técnica sobre arquitetura de sistema, coordenação de frota e ciclo operacional com Dock."
+        />
+        <Reveal className="mt-8 flex flex-wrap gap-3">
+          <Link
+            to="/contato"
+            search={{ assunto: "Engenharia" }}
+            className="inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Falar com a engenharia
+          </Link>
+          <Link
+            to="/contato"
+            search={{ assunto: "Parceria" }}
+            className="inline-flex rounded-md border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
+          >
+            Propor parceria tecnológica
+          </Link>
+        </Reveal>
       </Section>
     </main>
   );
