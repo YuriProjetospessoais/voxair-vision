@@ -126,6 +126,7 @@ function SolucoesPage() {
         <Reveal className="mt-8">
           <Link
             to="/contato"
+            search={{ assunto: "Operação" }}
             className="inline-flex rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Fale com a VoxAir

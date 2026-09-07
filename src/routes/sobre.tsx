@@ -99,6 +99,7 @@ function SobrePage() {
           </p>
           <Link
             to="/contato"
+            search={{ assunto: "Investimento" }}
             className="mt-5 inline-flex rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
           >
             Solicitar informações da equipe

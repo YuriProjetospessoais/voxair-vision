@@ -91,6 +91,7 @@ function MercadoPage() {
         <Reveal className="mt-8">
           <Link
             to="/contato"
+            search={{ assunto: "Investimento" }}
             className="inline-flex rounded-md border border-border px-5 py-3 text-sm font-medium transition-colors hover:bg-secondary"
           >
             Solicitar materiais de mercado
