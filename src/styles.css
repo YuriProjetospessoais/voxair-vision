@@ -98,7 +98,7 @@
   /* Slate #1F2937 */
   --slate-surface: oklch(0.279 0.041 260);
 
-  --grid: oklch(0.929 0.013 255.5 / 60%);
+  --grid: oklch(0.900 0.013 255.5 / 60%);
 }
 
 @layer base {
@@ -203,6 +203,7 @@
 }
 
 @utility dash-flow {
+  stroke: oklch(0.208 0.04 265.8);
   stroke-dasharray: 5 9;
   animation: dash-move 3.2s linear infinite;
 }
