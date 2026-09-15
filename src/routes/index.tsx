@@ -409,17 +409,17 @@ function Tecnologia() {
 
 function Roadmap() {
   const marcos = [
-    ["Hoje", "Desenvolvimento tecnológico", "Arquitetura definida e componentes em desenvolvimento e integração (TRL 3–4)."],
-    ["Próximo marco", "Demonstração integrada", "Validar o ciclo completo do sistema em ambiente representativo, com supervisão humana."],
-    ["Escala", "Operação e plataforma", "Operar como serviço, ampliar a frota e evoluir para fornecimento de hardware + software."],
+    ["Hoje", "Protótipo integrado (TRL 3–4)", "Sistema em bancada: arquitetura validada, componentes em integração, ciclo operacional simulado e testes de compatibilidade drone-dock-software."],
+    ["Próximo marco", "Validação em campo", "Demonstração completa do swarm em ambiente agrícola real. Testes de recarga automática, análise de dados em tempo real e monitoramento sincronizado com proprietário/agrônomo."],
+    ["Escala operacional", "Serviço + Hardware", "Modelo de operação: frota embarcada, dock dedicado, plataforma de análise contínua. Expansão progressiva com dados agrícolas mapeando regiões."],
   ];
   return (
     <Section id="roadmap">
       <SectionHeader
         index="06"
         eyebrow="Roadmap"
-        title="Hoje → próximo marco → escala"
-        description="Sem datas especulativas: publicamos apenas a sequência de marcos que orienta o desenvolvimento."
+        title="Desenvolvimento → Validação → Operação"
+        description="Marcos técnicos que guiam o desenvolvimento. Avançamos quando cada fase valida premissas críticas da próxima."
       />
       <ol className="mt-10 space-y-4">
         {marcos.map(([fase, title, body], i) => (
