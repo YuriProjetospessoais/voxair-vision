@@ -118,7 +118,7 @@ function Problema() {
         index="01"
         eyebrow="O problema"
         title="A pulverização convencional é cara, imprecisa e dependente de janelas curtas"
-        description="Aplicar insumos no momento certo, na dose certa e no lugar certo continua sendo um dos maiores gargalos operacionais do campo."
+        description="Aplicar insumos no momento certo, na dose certa e no lugar certo continua sendo um dos maiores gargalos. Drones já resolvem parte dessa equação em propriedades médias/pequenas, mas grandes áreas seguem presas à ineficiência dos autopropelidos."
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
@@ -150,9 +150,7 @@ function Problema() {
       <Reveal className="mt-14">
         <h3 className="text-xl font-semibold">Dimensionamento do problema</h3>
         <p className="mt-3 max-w-[68ch] text-sm leading-relaxed text-muted-foreground">
-          Ainda não publicamos números de mercado ou de operação porque não temos, neste momento,
-          medição própria nem fonte verificada para citar. Os indicadores abaixo estão estruturados
-          e serão preenchidos conforme a validação avançar.
+          Os indicadores abaixo refletem nossa estratégia de coleta de dados. Serão atualizados progressivamente com métricas operacionais verificadas.
         </p>
       </Reveal>
       <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
