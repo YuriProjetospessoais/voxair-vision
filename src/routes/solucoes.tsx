@@ -40,12 +40,15 @@ const blocks = [
   },
   {
     tag: "Infraestrutura de solo",
-    title: "Dock",
-    body: "Ponto de apoio da operação: concentra recarga e preparação da aeronave entre missões. É o componente que reduz o trabalho manual repetitivo e viabiliza ciclos operacionais mais longos.",
+    title: "Dock Automatizado",
+    body: "Hub operacional e inteligência de campo
+
+Um braço robótico integrado que automatiza recarga, preparação e análise entre missões. Recebe dados em tempo real do voo (espectral, RGB, dados de aplicação) e executa análise de cultura via machine learning — identificando variabilidade, pragas e eficácia da aplicação. Dados compartilhados em tempo real com o dono da propriedade e o agrônomo via dashboard.",
     points: [
-      "Ciclo: preparação → operação → retorno → nova missão",
-      "Menos intervenção manual entre voos",
-      "Base para operações progressivamente mais automatizadas",
+      "Ciclo automático: retorno → análise → recarga → nova missão",
+      "Inteligência em campo: ML analisa variabilidade e recomenda ajustes",
+      "Acesso em tempo real: proprietário e agrônomo acompanham operação e resultados",
+      "Reduz intervenção manual e viabiliza operações contínuas (24h)",
     ],
   },
   {
@@ -112,7 +115,10 @@ function SolucoesPage() {
         <SectionHeader
           eyebrow="Swarm"
           title="Frota coordenada por software"
-          description="Swarm, aqui, significa uma frota coordenada por software, capaz de dividir e executar missões de forma sincronizada — sempre com operador humano monitorando a operação, conforme o ambiente operacional e regulatório aplicável."
+          description="Swarm
+Frota autônoma coordenada por software
+
+Um swarm é um conjunto de drones que opera como uma unidade integrada: o software divide a área em setores, distribui as missões entre os drones e sincroniza a execução em tempo real. Um operador humano monitora a operação e pode intervir a qualquer momento."
         />
         <MissionFlow />
       </Section>
