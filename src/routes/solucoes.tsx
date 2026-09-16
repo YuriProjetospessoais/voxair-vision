@@ -41,9 +41,7 @@ const blocks = [
   {
     tag: "Infraestrutura de solo",
     title: "Dock Automatizado",
-    body: "Hub operacional e inteligência de campo
-
-Um braço robótico integrado que automatiza recarga, preparação e análise entre missões. Recebe dados em tempo real do voo (espectral, RGB, dados de aplicação) e executa análise de cultura via machine learning — identificando variabilidade, pragas e eficácia da aplicação. Dados compartilhados em tempo real com o dono da propriedade e o agrônomo via dashboard.",
+    body: "Hub operacional e inteligência de campo. Um braço robótico integrado que automatiza recarga, preparação e análise entre missões. Recebe dados em tempo real do voo (espectral, RGB, dados de aplicação) e executa análise de cultura via machine learning — identificando variabilidade, pragas e eficácia da aplicação. Dados compartilhados em tempo real com o dono da propriedade e o agrônomo via dashboard.",
     points: [
       "Ciclo automático: retorno → análise → recarga → nova missão",
       "Inteligência em campo: ML analisa variabilidade e recomenda ajustes",
@@ -114,11 +112,8 @@ function SolucoesPage() {
       <Section tone="surface">
         <SectionHeader
           eyebrow="Swarm"
-          title="Frota coordenada por software"
-          description="Swarm
-Frota autônoma coordenada por software
-
-Um swarm é um conjunto de drones que opera como uma unidade integrada: o software divide a área em setores, distribui as missões entre os drones e sincroniza a execução em tempo real. Um operador humano monitora a operação e pode intervir a qualquer momento."
+          title="Frota autônoma coordenada por software"
+          description="Um swarm é um conjunto de drones que opera como uma unidade integrada: o software divide a área em setores, distribui as missões entre os drones e sincroniza a execução em tempo real. Um operador humano monitora a operação e pode intervir a qualquer momento."
         />
         <MissionFlow />
       </Section>
