@@ -75,7 +75,7 @@ function Hero() {
             </h1>
             <p className="mt-6 max-w-[60ch] text-lg leading-relaxed text-muted-foreground">
               A VoxAir Systems desenvolve uma plataforma integrada de hardware, software e dados
-              para pulverização agrícola de precisão — frotas de drones coordenadas por software,
+              para pulverização agrícola de precisão. Frotas de drones coordenadas por software,
               apoiadas por um Dock e por um registro completo de cada aplicação.
             </p>
           </Reveal>
