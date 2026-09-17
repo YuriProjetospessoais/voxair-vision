@@ -280,7 +280,10 @@ function Mercado() {
       </div>
 
       <div className="mt-8 grid gap-6 md:grid-cols-3">
-        <StatCard invert status="A validar" label="TAM" value="—" description="Mercado total endereçável. Será publicado apenas com fonte e metodologia declaradas." />
+        <StatCard invert status="A validar" label="TAM" value="—" description="Mercado total endereçável: R$ 11,2 bilhões
+├─ Toda agricultura brasileira que pode usar drones
+├─ 97,3 milhões de hectares × R$ 115/hectare
+└─ Comparação global: crescimento de US$ 2B (2024) → US$ 8B (2029)" />
         <StatCard invert delay={70} status="A validar" label="SAM" value="—" description="Parcela endereçável pela operação com frota coordenada no recorte geográfico inicial." />
         <StatCard invert delay={140} status="A validar" label="SOM" value="—" description="Parcela alcançável no horizonte de operação própria, dependente da capacidade instalada." />
       </div>
