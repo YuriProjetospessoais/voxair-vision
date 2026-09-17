@@ -265,7 +265,7 @@ function Mercado() {
           ],
           [
             "Segmento em formação",
-            "A pulverização por drones ainda está em consolidação — tecnologia, operação e regulação evoluem em paralelo.",
+            "A pulverização por drones é a próxima geração da agricultura tecnologia validada, operação pronta, regulação em evolução.",
           ],
           [
             "Espaço para sistemas",
