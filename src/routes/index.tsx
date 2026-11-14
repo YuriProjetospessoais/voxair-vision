@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Container, Section, SectionHeader } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
-import { SystemDiagram } from "@/components/site/SystemDiagram";
 import { MissionFlow } from "@/components/site/MissionFlow";
 import { StatCard, ComparisonCard, TechnicalCard, StatusTag } from "@/components/site/Cards";
+import { Photo } from "@/components/site/Photo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -100,11 +100,13 @@ function Hero() {
           </Reveal>
         </div>
 
-        <Reveal delay={140} className="rounded-xl border border-border bg-card p-4 sm:p-6">
-          <SystemDiagram className="w-full text-border" />
-          <p className="mt-3 text-center text-xs text-muted-foreground">
-            Arquitetura do sistema VoxAir — representação esquemática.
-          </p>
+        <Reveal delay={140} className="overflow-hidden rounded-xl border border-border">
+          <Photo
+            src="/images/hero.webp"
+            alt="Frota de drones agrícolas coordenada sobre uma lavoura, com operador supervisionando"
+            priority
+            ratio="aspect-[4/3]"
+          />
         </Reveal>
       </Container>
     </section>
