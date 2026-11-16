@@ -3,7 +3,7 @@ import { Container, Section, SectionHeader } from "@/components/site/Section";
 import { Reveal } from "@/components/site/Reveal";
 import { MissionFlow } from "@/components/site/MissionFlow";
 import { StatCard, ComparisonCard, TechnicalCard, StatusTag } from "@/components/site/Cards";
-import { Photo } from "@/components/site/Photo";
+import { Photo, Backdrop } from "@/components/site/Photo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -128,21 +128,34 @@ function Problema() {
           [
             "Janela operacional curta",
             "Condições de clima e estágio da cultura limitam o período útil de aplicação; atrasos custam produtividade.",
+            "/images/problema-janela.webp",
+            "Nuvens de tempestade se aproximando de uma lavoura",
           ],
           [
             "Precisão limitada",
             "Aplicações uniformes em áreas heterogêneas geram desperdício de insumo e tratamento inadequado de parte do talhão.",
+            "/images/problema-desperdicio.webp",
+            "Vista aérea de lavoura com manchas irregulares e mapa de calor",
           ],
           [
             "Custo e disponibilidade de operação",
             "Máquinas de grande porte, deslocamento, compactação de solo e dependência de mão de obra qualificada elevam o custo por hectare.",
+            "/images/problema-maquina.webp",
+            "Pulverizador autopropelido em lavoura com marcas de compactação no solo",
           ],
           [
             "Pouco registro do que foi feito",
             "Boa parte das operações termina sem dado estruturado sobre onde, quando e como o insumo foi aplicado.",
+            "/images/problema-registro.webp",
+            "Produtor no campo olhando uma prancheta em branco",
           ],
-        ].map(([t, d], i) => (
-          <Reveal key={t} delay={i * 60} className="rounded-lg border border-border bg-card p-6">
+        ].map(([t, d, img, alt], i) => (
+          <Reveal
+            key={t}
+            delay={i * 60}
+            className="overflow-hidden rounded-lg border border-border bg-card p-6"
+          >
+            <Photo src={img} alt={alt} className="-mx-6 -mt-6 mb-5" />
             <h3 className="text-[15px] font-semibold">{t}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d}</p>
           </Reveal>
@@ -204,6 +217,8 @@ function Solucao() {
           title="Drone"
           body="Aeronave de aplicação projetada para operar como parte de uma frota, dirigida por missão definida em software."
           items={["Aplicação dirigida por missão", "Telemetria de cada voo"]}
+          image="/images/solucao-drone.webp"
+          imageAlt="Drone agrícola sobre linhas de cultura"
         />
         <TechnicalCard
           delay={60}
@@ -212,6 +227,8 @@ function Solucao() {
           title="Dock"
           body="Ponto de apoio que concentra recarga e preparação entre missões, reduzindo o trabalho manual repetitivo."
           items={["Ciclo contínuo entre voos", "Menos intervenção manual"]}
+          image="/images/solucao-dock.webp"
+          imageAlt="Plataforma de solo simples com um drone pousado"
         />
         <TechnicalCard
           delay={120}
@@ -220,6 +237,8 @@ function Solucao() {
           title="Coordenação de frota"
           body="Camada que transforma uma área em missões executáveis e as distribui entre múltiplas aeronaves de forma sincronizada."
           items={["Divisão automática da missão", "Supervisão humana da operação"]}
+          image="/images/solucao-software.webp"
+          imageAlt="Tablet com mapa de lavoura dividido em zonas de missão"
         />
         <TechnicalCard
           delay={180}
@@ -228,6 +247,8 @@ function Solucao() {
           title="Registro operacional"
           body="Cada missão gera histórico do que foi aplicado, onde e quando — base para gestão agronômica e rastreabilidade."
           items={["Histórico por talhão", "Base para inteligência futura"]}
+          image="/images/solucao-dados.webp"
+          imageAlt="Agrônomo analisando um painel de dados no campo"
         />
       </div>
 
@@ -251,7 +272,8 @@ function Solucao() {
 
 function Mercado() {
   return (
-    <Section id="mercado" tone="deep">
+    <Section id="mercado" tone="deep" className="relative isolate overflow-hidden">
+      <Backdrop src="/images/mercado-panorama.webp" />
       <SectionHeader
         index="03"
         invert
@@ -434,6 +456,14 @@ function Roadmap() {
               <div>
                 <h3 className="text-lg font-semibold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{body}</p>
+                {i === 0 && (
+                  <Photo
+                    src="/images/roadmap-bancada.webp"
+                    alt="Protótipo do drone na bancada de testes"
+                    ratio="aspect-[21/9]"
+                    className="mt-4 rounded-md"
+                  />
+                )}
               </div>
             </div>
           </Reveal>
@@ -659,7 +689,8 @@ function Validacao() {
 
 function CTA() {
   return (
-    <Section tone="deep">
+    <Section tone="deep" className="relative isolate overflow-hidden">
+      <Backdrop src="/images/cta-produtor.webp" />
       <Reveal className="max-w-3xl">
         <h2 className="text-3xl leading-tight font-semibold sm:text-4xl">
           Construindo a próxima geração da agricultura autônoma.
